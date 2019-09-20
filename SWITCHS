@@ -1,0 +1,119 @@
+enable
+configure terminal
+hostname SW-01
+banner motd "ACESSO AUTORIZADO APENAS PARA O DEPARTAMENTO DE TI!"
+enable secret SenhadaEnable
+ip domain-name senai.local
+login block-for 180 attempts 3 within 60
+security passwords min-length 8
+crypto key generate rsa general-keys modulus 1024
+username Administrador privilege 15 secret talaricodepm
+username Estagiario privilege 1 secret lucaslindo
+line console 0
+password SenhadaConsole
+login
+exit
+service password-encryption
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+exec-timeout 10
+login local
+exit
+interface vlan 1
+ip address 192.168.1.30
+description INTERFACE DE GERENCIAMENTO
+no shutdown
+exit
+ip default-gateway 192.168.1.1
+do wr
+==============================================================
+enable
+configure terminal
+hostname SW-02
+banner motd "ACESSO AUTORIZADO APENAS PARA O DEPARTAMENTO DE TI!"
+enable secret SenhadaEnable
+ip domain-name senai.local
+login block-for 180 attempts 3 within 60
+security passwords min-length 8
+crypto key generate rsa general-keys modulus 1024
+username Administrador privilege 15 secret talaricodepm
+username Estagiario privilege 1 secret lucaslindo
+line console 0
+password SenhadaConsole
+login
+exit
+service password-encryption
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+exec-timeout 10
+login local
+exit
+interface vlan 1
+ip address 10.40.30.255
+description INTERFACE DE GERENCIAMENTO
+no shutdown
+exit
+ip default-gateway 10.40.16.1
+do wr
+================================================================
+enable
+configure terminal
+hostname SW-03
+banner motd "ACESSO AUTORIZADO APENAS PARA O DEPARTAMENTO DE TI!"
+enable secret SenhadaEnable
+ip domain-name senai.local
+login block-for 180 attempts 3 within 60
+security passwords min-length 8
+crypto key generate rsa general-keys modulus 1024
+username Administrador privilege 15 secret talaricodepm
+username Estagiario privilege 1 secret lucaslindo
+line console 0
+password SenhadaConsole
+login
+exit
+service password-encryption
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+exec-timeout 10
+login local
+exit
+interface vlan 1
+ip address 172.16.43.255
+description INTERFACE DE GERENCIAMENTO
+no shutdown
+exit
+ip default-gateway 172.16.42.1
+do wr
+===============================================================
+enable
+configure terminal
+hostname SW-04
+banner motd "ACESSO AUTORIZADO APENAS PARA O DEPARTAMENTO DE TI!"
+enable secret SenhadaEnable
+ip domain-name senai.local
+login block-for 180 attempts 3 within 60
+security passwords min-length 8
+crypto key generate rsa general-keys modulus 1024
+username Administrador privilege 15 secret talaricodepm
+username Estagiario privilege 1 secret lucaslindo
+line console 0
+password SenhadaConsole
+login
+exit
+service password-encryption
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+exec-timeout 10
+login local
+exit
+interface vlan 1
+ip address 192.168.0.126
+description INTERFACE DE GERENCIAMENTO
+no shutdown
+exit
+ip default-gateway 192.168.0.1
+do wr
